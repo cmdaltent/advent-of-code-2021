@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+
+	"cmdaltent/advent-of-code-2021/lib"
 )
 
 func main() {
-	input, err := openFile("day-1/input.txt")
+	input, err := lib.OpenFile("day-1/input.txt")
 	if err != nil {
 		panic(err)
 	}
@@ -23,14 +25,6 @@ func main() {
 
 	fmt.Println("Part 2")
 	fmt.Printf("Number of increases: %d\n", increasesWithSlidingWindow(numbers, 3))
-}
-
-func openFile(filePath string) (*os.File, error) {
-	file, err := os.Open(filePath)
-	if err != nil {
-		return nil, err
-	}
-	return file, nil
 }
 
 func readNumbers(inputFile *os.File) ([]int, error) {
